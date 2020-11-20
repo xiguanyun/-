@@ -1,0 +1,49 @@
+"""
+通过自定义函数，实现RPSLS游戏，即用户通过键盘输入任意一个选择（石头/剪刀/布/蜥蜴/史波克），计算机自动生成一个随机选择，根据RPSLS规则，产生最终的结果
+"""
+import random
+def name_to_number(name):
+    if name=="石头":
+        a=0
+    elif name=="史波克":
+        a=1
+    elif name=="布":
+        a=2
+    elif name=="蜥蜴":
+        a=3
+    elif name=="剪刀":
+        a=4
+    else:
+        a=5
+    return a
+def nunber_to_name(number):
+    if number==0:
+        Name="石头"
+    elif number==1:
+        Name="史波克"
+    elif number==2:
+        Name="布"
+    elif number==3:
+        Name="蜥蜴"
+    elif number==4:
+        Name="剪刀"
+    return Name
+def rpsls(player_choice):
+    number=random.randint(0,4)
+    print("您的选择为"+player_choice)
+    print("计算机的选择为"+nunber_to_name(number))
+    a=name_to_number(player_choice)
+    b=int(a-number)
+    if a==5:
+        print("Error: No Correct Name")
+    elif b==0:
+        print("您与电脑的选择一致")
+    elif -4<=b<=-3 or 1<=b<=2:
+        print("恭喜你获得胜利")
+    elif -2<=b<=-1 or 3<=b<=4:
+        print("人类一败涂地")
+    else:
+        print("错误")
+print("请输入你的选择：")
+choice_name=input()
+rpsls(choice_name)
